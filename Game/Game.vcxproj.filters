@@ -9,9 +9,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Actors">
-      <UniqueIdentifier>{dd989508-3c34-44e9-a7b6-bc99095b3c8d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -20,28 +17,10 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Actors\Player.cpp">
-      <Filter>Actors</Filter>
-    </ClCompile>
-    <ClCompile Include="Actors\Projectile.cpp">
-      <Filter>Actors</Filter>
-    </ClCompile>
-    <ClCompile Include="Actors\Enemy.cpp">
-      <Filter>Actors</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
       <Filter>Source</Filter>
-    </ClInclude>
-    <ClInclude Include="Actors\Enemy.h">
-      <Filter>Actors</Filter>
-    </ClInclude>
-    <ClInclude Include="Actors\Player.h">
-      <Filter>Actors</Filter>
-    </ClInclude>
-    <ClInclude Include="Actors\Projectile.h">
-      <Filter>Actors</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

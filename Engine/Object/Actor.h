@@ -1,5 +1,6 @@
 #pragma once
 #include "Object.h"
+#include "Component/Component.h"
 #include "Math/Transform.h"
 #include "Scene.h"
 #include <memory>
@@ -15,7 +16,7 @@ namespace smile
 	public:
 
 		Actor() {}
-		Actor(const Transform& transform, std::shared_ptr<Texture> texture = {}) : transform{ transform }, texture{ texture }{}
+		Actor(const Transform& transform) : transform{ transform }{}
 
 		virtual void Initialize() {}
 
@@ -27,13 +28,12 @@ namespace smile
 
 		float GetRadius();
 
+		void AddComponent(std::unique_ptr<Component> component);
 
 	public:
 		bool destroy{ false };
 
 		std::string tag;
-
-		std::shared_ptr<Texture> texture;
 
 		Transform transform;
 	
@@ -41,5 +41,7 @@ namespace smile
 
 		Actor* parent{ nullptr };
 		std::vector < std::unique_ptr<Actor>> children;
+
+		std::vector<std::unique_ptr<Component>> components;
 	};
 }

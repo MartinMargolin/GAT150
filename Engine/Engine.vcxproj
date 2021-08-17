@@ -181,6 +181,8 @@
   <ItemGroup>
     <ClCompile Include="Audio\AudioChannel.cpp" />
     <ClCompile Include="Audio\AudioSystem.cpp" />
+    <ClCompile Include="Component\PhysicsComponent.cpp" />
+    <ClCompile Include="Component\SpriteComponent.cpp" />
     <ClCompile Include="Core\FileSystem.cpp" />
     <ClCompile Include="Core\Timer.cpp" />
     <ClCompile Include="Core\Utilities.cpp" />
@@ -201,6 +203,9 @@
   <ItemGroup>
     <ClInclude Include="Audio\AudioChannel.h" />
     <ClInclude Include="Audio\AudioSystem.h" />
+    <ClInclude Include="Component\Component.h" />
+    <ClInclude Include="Component\GraphicsComponent.h" />
+    <ClInclude Include="Component\SpriteComponent.h" />
     <ClInclude Include="Core\FileSystem.h" />
     <ClInclude Include="Core\Timer.h" />
     <ClInclude Include="Core\Utilities.h" />
@@ -222,6 +227,7 @@
     <ClInclude Include="Object\Actor.h" />
     <ClInclude Include="Object\Object.h" />
     <ClInclude Include="Object\Scene.h" />
+    <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="Resource\Resource.h" />
     <ClInclude Include="Resource\ResourceSystem.h" />
   </ItemGroup>

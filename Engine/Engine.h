@@ -38,10 +38,17 @@
 // objects
 #include "Object/Actor.h"
 #include "Object/Scene.h"
+
+// compoonent
+
+#include "Component/SpriteComponent.h"
+#include "Component/GraphicsComponent.h"
+#include "Component/Component.h"
+#include "PhysicsComponent.h"
+
 #include <vector>
 #include <memory>
 #include <algorithm>
-
 namespace smile
 {
 	class Engine
