@@ -23,15 +23,25 @@ void Game::Initialize()
 
 	}
 
-	{
+	/*{
 
 		std::unique_ptr<smile::PhysicsComponent> component = std::make_unique<smile::PhysicsComponent>();
 		component->ApplyForce(smile::Vector2::right * 200);
 		actor->AddComponent(std::move(component));
 
 
-	}
+	}*/
+
 	scene->AddActor(std::move(actor));
+
+	/*int size = 32;
+	std::shared_ptr<smile::Font> titleFont = engine->Get<smile::ResourceSystem>()->Get<smile::Font>("fonts/ALBAS.ttf", &size);
+
+	{
+		std::unique_ptr<smile::SpriteComponent> component = std::make_unique<smile::SpriteComponent>();
+		component->texture = titleFont;
+
+	}*/
 
 }
 
