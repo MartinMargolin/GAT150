@@ -100,6 +100,7 @@ namespace smile {
 
 		SDL_RenderCopyEx(renderer, texture->texture, nullptr, &rect, smile::RadToDeg(angle), nullptr, SDL_FLIP_NONE);
 	}
+
 	void Renderer::Draw(std::shared_ptr<smile::Texture> texture, const Transform& transform)
 	{
 		Vector2 size = texture->GetSize();
@@ -116,5 +117,24 @@ namespace smile {
 		rect.h = static_cast<int>(size.y);
 
 		SDL_RenderCopyEx(renderer, texture->texture, nullptr, &rect, smile::RadToDeg(transform.rotation), nullptr, SDL_FLIP_NONE);
+	}
+
+	void Renderer::Draw(std::shared_ptr<smile::Texture> texture, SDL_Rect &source, const Transform& transform)
+	{
+		Vector2 size = Vector2{source.w, source.h};
+
+		size = size * transform.scale;
+
+		Vector2 newPosition = transform.position - (size * 0.5f);
+
+		SDL_Rect rect;
+
+		rect.x = static_cast<int>(newPosition.x);
+		rect.y = static_cast<int>(newPosition.y);
+		rect.w = static_cast<int>(size.x);
+		rect.h = static_cast<int>(size.y);
+
+		SDL_RenderCopyEx(renderer, texture->texture, &source, &rect, smile::RadToDeg(transform.rotation), nullptr, SDL_FLIP_NONE);
+
 	}
 }

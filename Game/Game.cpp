@@ -14,12 +14,25 @@ void Game::Initialize()
 	smile::SeedRandom(static_cast<unsigned int>(time(nullptr)));
 	smile::SetFilePath("../Resources");
 
-	std::unique_ptr<smile::Actor> actor = std::make_unique<smile::Actor>(smile::Transform{ {400, 300}});
+	std::unique_ptr<smile::Actor> actor1 = std::make_unique<smile::Actor>(smile::Transform{ smile::Vector2{200,300}, 0, 1 });
+	{
+	
+		smile::SpriteAnimationComponent* component = actor1->AddComponent<smile::SpriteAnimationComponent>();
+		component->texture = engine->Get<smile::ResourceSystem>()->Get<smile::Texture>("sparkle.png", engine->Get<smile::Renderer>());
+		component->fps = 30;
+		component->numFramesX = 8;
+		component->numFramesY = 8;
+
+	}
+
+	std::unique_ptr<smile::Actor> actor2 = std::make_unique<smile::Actor>(smile::Transform{ smile::Vector2{600,300}, 0, 3 });
 	{
 
-	std::unique_ptr<smile::SpriteComponent> component = std::make_unique<smile::SpriteComponent>();
-	component->texture = engine->Get<smile::ResourceSystem>()->Get<smile::Texture>("treeSnake.png", engine->Get<smile::Renderer>());
-	actor->AddComponent(std::move(component));
+		smile::SpriteAnimationComponent* component = actor2->AddComponent<smile::SpriteAnimationComponent>();
+		component->texture = engine->Get<smile::ResourceSystem>()->Get<smile::Texture>("link.png", engine->Get<smile::Renderer>());
+		component->fps = 120;
+		component->numFramesX = 12;
+		component->numFramesY = 8;
 
 	}
 
@@ -32,7 +45,11 @@ void Game::Initialize()
 
 	}*/
 
-	scene->AddActor(std::move(actor));
+	scene->AddActor(std::move(actor1));
+	scene->AddActor(std::move(actor2));
+
+
+
 
 	/*int size = 32;
 	std::shared_ptr<smile::Font> titleFont = engine->Get<smile::ResourceSystem>()->Get<smile::Font>("fonts/ALBAS.ttf", &size);

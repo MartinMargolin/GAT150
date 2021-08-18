@@ -43,6 +43,7 @@
 
 #include "Component/SpriteComponent.h"
 #include "Component/GraphicsComponent.h"
+#include "Component/SpriteAnimationComponent.h"
 #include "Component/Component.h"
 #include "PhysicsComponent.h"
 
