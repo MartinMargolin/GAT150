@@ -119,7 +119,7 @@ namespace smile {
 		SDL_RenderCopyEx(renderer, texture->texture, nullptr, &rect, smile::RadToDeg(transform.rotation), nullptr, SDL_FLIP_NONE);
 	}
 
-	void Renderer::Draw(std::shared_ptr<smile::Texture> texture, SDL_Rect &source, const Transform& transform)
+	void Renderer::Draw(std::shared_ptr<smile::Texture> texture, const SDL_Rect& source, const Transform& transform)
 	{
 		Vector2 size = Vector2{source.w, source.h};
 

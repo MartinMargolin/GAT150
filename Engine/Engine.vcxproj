@@ -213,6 +213,7 @@
     <ClInclude Include="Core\Utilities.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Framework\EventSystem.h" />
+    <ClInclude Include="Framework\Singleton.h" />
     <ClInclude Include="Framework\System.h" />
     <ClInclude Include="Graphics\Font.h" />
     <ClInclude Include="Graphics\ParticleSystem.h" />

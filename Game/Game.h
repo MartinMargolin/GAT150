@@ -4,7 +4,7 @@
 
 class Game
 {
-	
+
 
 public:
 	void Initialize();
@@ -16,11 +16,11 @@ public:
 	bool isQuit() { return quit; }
 
 
-public: 
+public:
 	std::unique_ptr<smile::Engine> engine;
 	std::unique_ptr<smile::Scene> scene;
-	
-private: 
+
+private:
 
 	bool quit = false;
 };
