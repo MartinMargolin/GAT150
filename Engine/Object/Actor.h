@@ -28,6 +28,9 @@ namespace smile
 
 		float GetRadius();
 
+		void AddComponent(std::unique_ptr<Component> component);
+
+
 		template<class T>
 		T* AddComponent();
 

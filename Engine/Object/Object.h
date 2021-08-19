@@ -4,6 +4,7 @@ namespace smile
 {
 	class Object
 	{
-		//
+	public:
+		virtual ~Object() {}
 	};
 }

@@ -16,6 +16,10 @@
 #include "Math/MathUtils.h"
 #include "Math/Transform.h"
 
+//framework
+#include "Framework/EventSystem.h"
+#include "Framework/Singleton.h"
+#include "Framework/Factory.h"
 // graphics
 #include "Graphics/ParticleSystem.h"
 #include "Graphics/Renderer.h"
@@ -25,8 +29,6 @@
 // input
 #include "Input/InputSystem.h"
 
-//framework
-#include "Framework/EventSystem.h"
 
 //audio
 #include "Audio/AudioSystem.h"
@@ -52,6 +54,10 @@
 #include <algorithm>
 namespace smile
 {
+	using ObjectFactory = Singleton<Factory<std::string, Object>>;
+
+
+
 	class Engine
 	{
 	public:

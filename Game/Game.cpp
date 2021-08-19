@@ -17,12 +17,12 @@ void Game::Initialize()
 	std::unique_ptr<smile::Actor> actor1 = std::make_unique<smile::Actor>(smile::Transform{ smile::Vector2{200,300}, 0, 1 });
 	{
 	
-		smile::SpriteAnimationComponent* component = actor1->AddComponent<smile::SpriteAnimationComponent>();
+		auto component = smile::ObjectFactory::Instance().Create<smile::SpriteAnimationComponent>("SpriteAnimationComponent");
 		component->texture = engine->Get<smile::ResourceSystem>()->Get<smile::Texture>("sparkle.png", engine->Get<smile::Renderer>());
 		component->fps = 30;
 		component->numFramesX = 8;
 		component->numFramesY = 8;
-
+		actor1->AddComponent(std::move(component));
 	}
 
 	std::unique_ptr<smile::Actor> actor2 = std::make_unique<smile::Actor>(smile::Transform{ smile::Vector2{600,300}, 0, 3 });
