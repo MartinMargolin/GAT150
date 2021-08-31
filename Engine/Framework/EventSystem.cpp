@@ -1,4 +1,5 @@
  #include "EventSystem.h"
+#include "Object/Object.h"
 namespace smile
 {
 
@@ -15,12 +16,31 @@ namespace smile
 	{
 	}
 
-	void EventSystem::Subscribe(const std::string& name, function_t function)
+	void EventSystem::Subscribe(const std::string& name, function_t function, Object* reciever)
 	{
 		Observer observer;
 		observer.function = function;
+		observer.reciever = reciever;
 		observers[name].push_back(observer);
 
+	}
+
+	void EventSystem::Unsubscribe(const std::string& name, Object* reciever)
+	{
+		auto& eventObservers = observers[name];
+
+			for (auto iter = eventObservers.begin(); iter != eventObservers.end();)
+			{
+				if (iter->reciever == reciever)
+				{
+					iter = eventObservers.erase(iter);
+				}
+				else
+				{
+					iter++;
+				}
+			}
+		
 	}
 
 	void EventSystem::Notify(const Event& event)
@@ -29,7 +49,12 @@ namespace smile
 
 		for (auto& observer : eventObservers)
 		{
+			if (event.reciever == nullptr || event.reciever == observer.reciever)
+			{
+
 			observer.function(event);
+
+			}
 		}
 
 	}

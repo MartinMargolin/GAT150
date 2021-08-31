@@ -1,13 +1,17 @@
 #pragma once
 // systems
 
-//#include "Audio/AudioSystem.h"
+
+#define REGISTER_CLASS(class) smile::ObjectFactory::Instance().Register<class>(#class);
 
 // core
 #include "Core/Utilities.h"
 #include "Core/FileSystem.h"
 #include "Core/Timer.h"
+#include "Core/Json.h"
+#include "Core/Serializable.h"
 
+#include "Physics/PhysicsSystem.h"
 
 // math
 #include "Math/Vector2.h"
@@ -47,7 +51,12 @@
 #include "Component/GraphicsComponent.h"
 #include "Component/SpriteAnimationComponent.h"
 #include "Component/Component.h"
-#include "PhysicsComponent.h"
+#include "Component/RBPhysicsComponent.h"
+#include "Component/PhysicsComponent.h"
+#include "Component/AudioComponent.h"
+#include "Component/TextComponent.h"
+
+#include "Physics/PhysicsSystem.h"
 
 #include <vector>
 #include <memory>
