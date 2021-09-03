@@ -18,10 +18,9 @@ namespace smile
 
 		int numTilesX{ 0 };
 		int numTilesY{ 0 };
-
+		Vector2 start;
 		Vector2 size;	
 		std::vector<std::string> tileNames; 
-
 		std::vector<int> tiles;
 	};
 

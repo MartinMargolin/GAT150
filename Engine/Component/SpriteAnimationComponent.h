@@ -38,7 +38,6 @@ namespace smile
 		float frameTimer{ 0 };
 		float frameTime{ 0 };
 		
-		SDL_Rect rect;
 
 		std::map<std::string, Sequence> sequences;
 		std::string sequenceName;

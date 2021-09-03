@@ -43,6 +43,7 @@
 
 // objects
 #include "Object/Actor.h"
+#include "Object/Tilemap.h"
 #include "Object/Scene.h"
 
 // compoonent

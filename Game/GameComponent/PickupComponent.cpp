@@ -32,6 +32,12 @@ void PickupComponent::OnCollisionEnter(const Event& event)
 
 		owner->scene->engine->Get<AudioSystem>()->PlayAudio("coin");
 		owner->destroy = true;
+
+		Event event;
+		event.name = "add_score";
+		event.data = 10;
+
+		owner->scene->engine->Get<EventSystem>()->Notify(event);
 	}
 
 	std::cout << actor->tag << std::endl;

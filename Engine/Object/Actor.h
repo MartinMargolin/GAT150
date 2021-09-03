@@ -49,6 +49,8 @@ namespace smile
 
 
 	public:
+		bool active{ true };
+
 		bool destroy{ false };
 
 		std::string name;

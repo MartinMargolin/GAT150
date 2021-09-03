@@ -33,7 +33,7 @@ void PlayerComponent::Update()
 		force.x += speed;
 	}
 
-		if (owner->scene->engine->Get<InputSystem>()->GetKeyState(SDL_SCANCODE_SPACE) == InputSystem::eKeyState::PRESSED)
+		if (contacts.size() > 0  && owner->scene->engine->Get<InputSystem>()->GetKeyState(SDL_SCANCODE_SPACE) == InputSystem::eKeyState::PRESSED)
 	{
 			force.y -= 200;
 	}
@@ -60,14 +60,18 @@ void PlayerComponent::OnCollisionEnter(const Event& event)
 	void* p = std::get<void*>(event.data);
 	Actor* actor = reinterpret_cast<Actor*>(p);
 
-	if (istring_compare(actor->tag, "ground"))
+	if (istring_compare(actor->tag, "Ground"))
 	{
 		contacts.push_back(actor);
 	}
 
-	if (istring_compare(actor->tag, "enemy"))
+	if (istring_compare(actor->tag, "Enemy"))
 	{
 		owner->scene->engine->Get<AudioSystem>()->PlayAudio("hurt");
+		Event event;
+		event.name = "remove_score";
+		event.data = 5;
+		owner->scene->engine->Get<EventSystem>()->Notify(event);
 	}
 
 	std::cout << actor->tag << std::endl;

@@ -83,6 +83,8 @@ namespace smile
 				std::string type;
 				JSON_READ(actorValue, type);
 
+				
+
 				bool prototype = false;
 				JSON_READ(actorValue, prototype);
 

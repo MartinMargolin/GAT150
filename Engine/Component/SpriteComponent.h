@@ -19,6 +19,7 @@ namespace smile
 
 	public:
 		std::shared_ptr<Texture> texture;
+		SDL_Rect rect;
 
 	};
 }

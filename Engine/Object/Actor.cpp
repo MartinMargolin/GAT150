@@ -24,8 +24,10 @@ namespace smile
 
 	void Actor::Update(float dt)
 	{
-		//transform.rotation += 180.0f * dt;
-		//transform.position.x += 100.0f * dt;
+		if (!active)
+		{
+			return;
+		}
 
 		std::for_each(components.begin(), components.end(), [](auto& component) { component->Update(); });
 
@@ -35,6 +37,11 @@ namespace smile
 
 	void Actor::Draw(Renderer* renderer)
 	{
+		if (!active)
+		{
+			return;
+		}
+
 		std::for_each(components.begin(), components.end(), [renderer](auto& component)
 			{
 				if (dynamic_cast<GraphicsComponent*>(component.get()))
@@ -91,6 +98,8 @@ namespace smile
 	{
 		JSON_READ(value, tag);
 		JSON_READ(value, name);
+		JSON_READ(value, active);
+
 		if (value.HasMember("transform"))
 		{
 			transform.Read(value["transform"]);
@@ -102,6 +111,7 @@ namespace smile
 			{
 				std::string type;
 				JSON_READ(componentValue, type);
+	
 
 				auto component = ObjectFactory::Instance().Create<Component>(type);
 				if (component)

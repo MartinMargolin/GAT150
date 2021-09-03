@@ -16,6 +16,7 @@ public:
 	void OnCollisionEnter(const smile::Event& event);
 	void OnCollisionExit(const smile::Event& event);
 	
+	
 	virtual bool Write(const rapidjson::Value& value) const override;
 	virtual bool Read(const rapidjson::Value& value) override;
 

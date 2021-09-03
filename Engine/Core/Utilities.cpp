@@ -21,6 +21,12 @@ namespace smile
 		return upper;
 
 	}
+	std::string unique_string(const std::string& str)
+	{
+		static int uniqueID = 0;
+		
+		return str + std::to_string(uniqueID++);
+	}
 	bool istring_compare(const std::string& str1, const std::string& str2)
 	{
 		if (str1.length() != str2.length()) return false;
